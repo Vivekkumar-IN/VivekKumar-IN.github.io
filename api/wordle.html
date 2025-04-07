@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="prev" title="SaavnAPI" href="saavn.html" />
 
     <link rel="shortcut icon" href="../_static/TheApix.ico"/><!-- Generated with Sphinx 8.2.3 and Furo 2024.08.06 -->
-        <title>Wordle Game - TheApix v1.0</title>
+        <title>&lt;no title&gt; - TheApix v1.0</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -180,7 +180,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -201,10 +201,9 @@
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="client.html">Client</a></li>
 <li class="toctree-l1"><a class="reference internal" href="saavn.html">SaavnAPI</a></li>
-<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Wordle Game</a></li>
 </ul>
 
 </div>
@@ -235,199 +234,13 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="wordle-game">
-<h1>Wordle Game<a class="headerlink" href="#wordle-game" title="Link to this heading">¶</a></h1>
-<dl class="py class">
-<dt class="sig sig-object py" id="TheApi.Wordle">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">TheApi.</span></span><span class="sig-name descname"><span class="pre">Wordle</span></span><a class="headerlink" href="#TheApi.Wordle" title="Link to this definition">¶</a></dt>
-<dd><p>A Wordle-style word guessing game Class.</p>
-<p>The game allows a user to guess a 5-letter word, providing feedback on correct and incorrect letters.
-Hints reveal specific letters in a structured manner.</p>
-<p class="rubric">Example</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">TheApi</span><span class="w"> </span><span class="kn">import</span> <span class="n">Wordle</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">Wordle</span><span class="p">()</span>
-
-<span class="c1"># Start a game</span>
-<span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">api</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="mi">1234</span><span class="p">,</span> <span class="n">hint_limit</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">attempt_limit</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-
-<span class="c1"># Make a guess</span>
-<span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">api</span><span class="o">.</span><span class="n">guess</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="mi">1234</span><span class="p">,</span> <span class="n">word</span><span class="o">=</span><span class="s2">&quot;apple&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-
-<span class="c1"># Request a hint</span>
-<span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">api</span><span class="o">.</span><span class="n">hint</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="mi">1234</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-
-<span class="c1"># End the game</span>
-<span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">api</span><span class="o">.</span><span class="n">end</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="mi">1234</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="literal-block-wrapper docutils container" id="id1">
-<div class="code-block-caption"><span class="caption-text">Expected Outputs</span><a class="headerlink" href="#id1" title="Link to this code">¶</a></div>
-<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;success&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Game started! Guess a 5-letter word.&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;rules&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="err">...</span><span class="p">},</span><span class="w"> </span><span class="nt">&quot;hints_left&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;attempts_left&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">}</span>
-<span class="p">{</span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;continue&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;hint&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;🟩⬛🟨⬛⬛&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;attempts_left&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">}</span>
-<span class="p">{</span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;success&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;This is your 1st hint: The 3️⃣ character of the word is `L`&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;hints_left&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">}</span>
-<span class="p">{</span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ended&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Game ended. The word was &#39;melon&#39;.&quot;</span><span class="p">}</span>
-</pre></div>
-</div>
-</div>
-<dl class="py method">
-<dt class="sig sig-object py" id="TheApi.Wordle.end">
-<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">end</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exceeded</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">win</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#TheApi.Wordle.end" title="Link to this definition">¶</a></dt>
-<dd><p>End the game and reveal the correct word.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>key</strong> (<code class="docutils literal notranslate"><span class="pre">int</span></code>) – Game identifier.</p></li>
-<li><p><strong>exceeded</strong> (<code class="docutils literal notranslate"><span class="pre">bool</span></code>) – Whether the game ended due to exceeding attempts.</p></li>
-<li><p><strong>win</strong> (<code class="docutils literal notranslate"><span class="pre">bool</span></code>) – Whether the user won.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><em>dict</em> – Game result and correct answer.</p>
-</dd>
-</dl>
-<p class="rubric">Example</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">api</span><span class="o">.</span><span class="n">end</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="mi">1234</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="literal-block-wrapper docutils container" id="id2">
-<div class="code-block-caption"><span class="caption-text">Expected Output</span><a class="headerlink" href="#id2" title="Link to this code">¶</a></div>
-<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="p">{</span>
-<span class="w">     </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ended&quot;</span><span class="p">,</span>
-<span class="w">     </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Game ended. The word was &#39;melon&#39;.&quot;</span>
-<span class="w"> </span><span class="p">}</span>
-</pre></div>
-</div>
-</div>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="TheApi.Wordle.guess">
-<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">guess</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">word</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#TheApi.Wordle.guess" title="Link to this definition">¶</a></dt>
-<dd><p>Process a user’s guess and return feedback.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>key</strong> (<code class="docutils literal notranslate"><span class="pre">int</span></code>) – Game identifier.</p></li>
-<li><p><strong>word</strong> (<code class="docutils literal notranslate"><span class="pre">str</span></code>) – The guessed word (must be 5 letters).</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><em>dict</em> – Feedback on the guess or game end status.</p>
-</dd>
-</dl>
-<dl class="simple">
-<dt>Color Explanation:</dt><dd><ul class="simple">
-<li><p>🟩 (<code class="docutils literal notranslate"><span class="pre">Green</span></code>): Correct letter in the correct position.</p></li>
-<li><p>🟨 (<code class="docutils literal notranslate"><span class="pre">Yellow</span></code>): Correct letter in the wrong position.</p></li>
-<li><p>⬛ (<code class="docutils literal notranslate"><span class="pre">Black</span></code>): Letter is not in the word.</p></li>
-</ul>
-</dd>
-</dl>
-<p class="rubric">Example</p>
-<div class="literal-block-wrapper docutils container" id="id3">
-<div class="code-block-caption"><span class="caption-text">Example Usage</span><a class="headerlink" href="#id3" title="Link to this code">¶</a></div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span> <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">api</span><span class="o">.</span><span class="n">guess</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="mi">1234</span><span class="p">,</span> <span class="n">word</span><span class="o">=</span><span class="s2">&quot;apple&quot;</span><span class="p">)</span>
- <span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="literal-block-wrapper docutils container" id="id4">
-<div class="code-block-caption"><span class="caption-text">Expected Output</span><a class="headerlink" href="#id4" title="Link to this code">¶</a></div>
-<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="p">{</span>
-<span class="w">     </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;continue&quot;</span><span class="p">,</span>
-<span class="w">     </span><span class="nt">&quot;hint&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;🟩⬛🟨⬛⬛&quot;</span><span class="p">,</span>
-<span class="w">     </span><span class="nt">&quot;attempts_left&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span>
-<span class="w"> </span><span class="p">}</span>
-</pre></div>
-</div>
-</div>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="TheApi.Wordle.hint">
-<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">hint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#TheApi.Wordle.hint" title="Link to this definition">¶</a></dt>
-<dd><p>Provide a structured hint.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>key</strong> (<code class="docutils literal notranslate"><span class="pre">int</span></code>) – Game identifier.</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><em>dict</em> – A structured hint message or an error if no hints remain.</p>
-</dd>
-</dl>
-<p class="rubric">Example</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">api</span><span class="o">.</span><span class="n">hint</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="mi">1234</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="literal-block-wrapper docutils container" id="id5">
-<div class="code-block-caption"><span class="caption-text">Expected Output</span><a class="headerlink" href="#id5" title="Link to this code">¶</a></div>
-<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="p">{</span>
-<span class="w">     </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;success&quot;</span><span class="p">,</span>
-<span class="w">     </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;This is your 1st hint: The 3️⃣ character of the word is `L`&quot;</span><span class="p">,</span>
-<span class="w">     </span><span class="nt">&quot;hints_left&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span>
-<span class="w"> </span><span class="p">}</span>
-</pre></div>
-</div>
-</div>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="TheApi.Wordle.start">
-<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">start</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hint_limit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attempt_limit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#TheApi.Wordle.start" title="Link to this definition">¶</a></dt>
-<dd><p>Start a new Wordle game.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>key</strong> (<code class="docutils literal notranslate"><span class="pre">int</span></code>) – Unique game identifier.</p></li>
-<li><p><strong>hint_limit</strong> (<code class="docutils literal notranslate"><span class="pre">int</span></code>) – Max hints allowed (default: 3).</p></li>
-<li><p><strong>attempt_limit</strong> (<code class="docutils literal notranslate"><span class="pre">int</span></code>) – Max attempts allowed (default: 5).</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><em>dict</em> – Game start details.</p>
-</dd>
-</dl>
-<p class="rubric">Example</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">api</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="mi">1234</span><span class="p">,</span> <span class="n">hint_limit</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">attempt_limit</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="literal-block-wrapper docutils container" id="id6">
-<div class="code-block-caption"><span class="caption-text">Expected Output</span><a class="headerlink" href="#id6" title="Link to this code">¶</a></div>
-<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-<span class="w">     </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;success&quot;</span><span class="p">,</span>
-<span class="w">     </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Game started! Guess a 5-letter word.&quot;</span><span class="p">,</span>
-<span class="w">     </span><span class="nt">&quot;rules&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">         </span><span class="nt">&quot;🟩&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Correct letter in correct position&quot;</span><span class="p">,</span>
-<span class="w">         </span><span class="nt">&quot;🟨&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Correct letter in wrong position&quot;</span><span class="p">,</span>
-<span class="w">         </span><span class="nt">&quot;⬛&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Incorrect letter&quot;</span>
-<span class="w">      </span><span class="p">},</span>
-<span class="w">     </span><span class="nt">&quot;hints_left&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span>
-<span class="w">     </span><span class="nt">&quot;attempts_left&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span>
-<span class="w"> </span><span class="p">}</span>
-</pre></div>
-</div>
-</div>
-</dd></dl>
-
-</dd></dl>
-
-</section>
-
+          
         </article>
       </div>
       <footer>
@@ -463,33 +276,8 @@ Hints reveal specific letters in a structured manner.</p>
         
       </footer>
     </div>
-    <aside class="toc-drawer">
+    <aside class="toc-drawer no-toc">
       
-      
-      <div class="toc-sticky toc-scroll">
-        <div class="toc-title-container">
-          <span class="toc-title">
-            On this page
-          </span>
-        </div>
-        <div class="toc-tree-container">
-          <div class="toc-tree">
-            <ul>
-<li><a class="reference internal" href="#">Wordle Game</a><ul>
-<li><a class="reference internal" href="#TheApi.Wordle"><code class="docutils literal notranslate"><span class="pre">Wordle</span></code></a><ul>
-<li><a class="reference internal" href="#TheApi.Wordle.end"><code class="docutils literal notranslate"><span class="pre">Wordle.end()</span></code></a></li>
-<li><a class="reference internal" href="#TheApi.Wordle.guess"><code class="docutils literal notranslate"><span class="pre">Wordle.guess()</span></code></a></li>
-<li><a class="reference internal" href="#TheApi.Wordle.hint"><code class="docutils literal notranslate"><span class="pre">Wordle.hint()</span></code></a></li>
-<li><a class="reference internal" href="#TheApi.Wordle.start"><code class="docutils literal notranslate"><span class="pre">Wordle.start()</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
-          </div>
-        </div>
-      </div>
       
       
     </aside>
